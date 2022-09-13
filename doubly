@@ -1,0 +1,118 @@
+#include<iostream>
+#include<string>
+using namespace std;
+struct node
+{
+char data[20];
+struct node *left,*right;
+};
+typedef struct node *NODE;
+class dlist
+{
+private: NODE first;
+Iint count;
+public:dlist()
+{
+first=NULL;
+count=1;
+}
+void create();
+void del(int pos);
+void print();
+};
+
+void dlist::create()
+{
+char item[10];
+cout<<”Enter the data”<<endl;
+cin>>item;
+NODE temp;
+temp new(struct node);
+temp->left=temp->right=NULL;
+if(first==NULL)
+{
+strcpy(temp->data,item);
+first=temp;
+}
+else
+{
+strcpy(temp->data,item);
+temp->right=first;
+first->left=temp;
+first=temp;
+}
+}
+
+void dlis::del(int pos)
+{
+NODE cur,prev,temp;
+if(first==NULL)
+(
+cout<<”NO elements to delete”<<endl;
+return;
+)
+if(pos==1)
+{
+cout<<first->data;
+cur=first;
+first=first->right;
+first->left=NULL;
+delete cur;
+return;
+}
+prev=null;
+cur=first;
+while(cur!=null && count!=pos)
+{
+prev=cur;
+cur=cur->right;
+count++;
+}
+count=1;
+temp=cur->right;
+prev->right=temp;
+temp->left=prev;
+cout<<”the item deleted is:”;
+cout<<cur->data<<endl;
+delete(cur);
+}
+
+void dlist::print()
+{
+nODE temp;
+if(first==NULL)
+{
+cout<<”List is empty”<<endl;
+}
+temp=first;
+while(temp!=NULL)
+{
+cout<<temp->data;
+temp=temp->rigtht;
+}
+}
+
+void main()
+{
+int pos,choice;
+char item(10);
+dlist d;
+while(1)
+{
+cout<<”1.insert 2.delete 3.print 4.exit”;
+cin>>choice;
+switch(choice)
+{
+case 1:d_create();
+	Break;
+case 2:cout<<”Enter the positoin\n”;
+	Cin>>pos;
+	D_del(pos);
+Break;
+case 3: cout<<”Contents of the list are”;
+	D_print();
+	Break;
+default:return 0;
+}
+}
+}
