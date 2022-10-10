@@ -1061,6 +1061,58 @@ void printsolution(int n,int x[])
 
 
 
+#include<stdio.h>
+#include<conio.h> 
+int a[10] , x[10],d ; 
+void sumofsub ( int , int , int ) ; 
+void main () 
+{  
+  	int n , sum = 0;  
+    	int i;  
+    	clrscr ();  
+    	printf ( " \n Enter the size of the set : "  ;  
+    	scanf ( "%d" , &n );  
+    	printf ( " \n Enter the set in increasing order:\n" );  
+    	for ( i = 1 ; i <= n ; i++ )   
+scanf ("%d", &a[i] );  
+    	printf ( " \n Enter the value of d : \n " );   
+    	scanf ( "%d" ,  &d );  
+    	
+for ( i = 1 ; i <= n ; i++ )   
+    		sum = sum + a[i];  
+    	
+if ( sum < d || a[1] > d )   
+    		printf ( " \n No subset possible : " );  
+    	else   
+    		sumofsub ( 0 , 1 , sum );  
+    	getch (); 
+} 
+
+void sumofsub ( int s , int k , int r ) 
+{  
+int i=1 ;  x[k] = 1 ; 
+    	if ( ( s + a[k] ) == d )  
+    	{   
+        		printf("Subset:");   
+        		for ( i = 1 ; i <= k ; i++ ) 
+       			if ( x[i] == 1 )     
+       				printf ( "\t%d" , a[i] ) ;  
+       			printf ( "\n" ) ; 
+
+    	}  
+    	else   if ( s + a[k] + a[k+1] <= d )    
+    		sumofsub ( s + a[k] , k + 1 , r - a[k] ) ;   
+    	if ( ( s + r - a[k] >= d ) && ( s + a[k+1] <=d ) )   
+    	{    
+        		x[k] = 0;    
+    		sumofsub ( s , k + 1 , r - a[k] ) ;   
+      	} 
+}
+
+
+
+
+
 
 
 
